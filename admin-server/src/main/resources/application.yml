@@ -1,0 +1,40 @@
+spring:
+  mail:
+    host: smtp.qq.com
+    username: guo784390929@qq.com
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  # 发送给谁
+  boot:
+    admin:
+      notify:
+        mail:
+          to: guo784390929@qq.com
+  # 是谁发送出去的
+          from: guo784390929@qq.com
+  application:
+    name: admin-server
+  eureka:
+    client:
+      registryFetchIntervalSeconds: 5
+      service-url:
+        defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761}/eureka/
+    instance:
+      leaseRenewalIntervalInSeconds: 10
+      health-check-url-path: /actuator/health
+server:
+  port: 8769
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
